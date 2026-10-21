@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tesla-home-link"
+version = "0.1.0"
+description = "Car-to-home continuity for your Teslas: ETA-aware thermostat pre-heat/pre-cool, Philips Hue porch lights on approach after dusk, a welcome-home TV + console scene, and leave-home away actions — Xiaomi HyperOS-style, with an OpenAI-compatible chat surface to explain triggers and edit rules in plain language"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Raphael Malikian", email = "rtmalikian@gmail.com" }]
+keywords = ["tesla", "fleet-api", "openai-compatible", "llm", "smart-home", "home-assistant", "philips-hue", "nest", "ecobee", "wake-on-lan", "ev", "model-3", "model-y", "model-s", "model-x", "cybertruck", "ollama"]
+dependencies = [
+    "requests>=2.31",
+    "python-dotenv>=1.0",
+]
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Topic :: Home Automation",
+]
+
+[project.scripts]
+thlink = "tesla_home_link.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/rtmalikian/tesla-home-link"
+Issues = "https://github.com/rtmalikian/tesla-home-link/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
